@@ -1,0 +1,62 @@
+package pandy.test.tree;
+/*
+ * 二叉树类
+ */
+public class Tree {
+	//根节点
+	public Node root;
+	
+	/*
+	 * 插入一个节点
+	 * 根据二叉树的性质 比较新插入节点域当前节点的大小
+	 * 用来判断插入的是右子节点还是左子节点
+	 */
+	public void insert(long value) {
+		//节点包含数据 左右子节点 封装节点
+		Node newNode = new Node(value);
+		//引用当前节点
+		Node current = root;
+		//引用父节点
+		Node parent;
+		//如果root为null 也就是第一次插入的时候
+		if(root==null) {
+			root = newNode;
+			return;
+		}else {
+			while(true) {//死循环 遍历整个树的趋向 以找到合适的节点
+				//父节点指向当前节点
+				parent = current;
+				//如果当前指向的节点数据比插入的要大 左走
+				if(current.data>value) {
+					current = current.leftChild;
+					//遍历至当前节点的左节点为null 构建新的节点
+					if(current==null) {
+						parent.leftChild = newNode;
+						return;
+					}
+				}else {
+					current = current.rightChild;
+					//遍历至当前节点的右节点为null 构建新的节点
+					if(current==null) {
+						parent.rightChild = newNode;
+						return;
+					}
+				}
+			}
+		}
+	}
+	/*
+	 * 查找节点
+	 * 从根节点查找 查找的节点比当前节点小 就查找左树
+	 * 否则就查找右树
+	 */
+	public void find(long value) {
+		
+	}
+	/*
+	 * 删除节点
+	 */
+	public void delete(long value) {
+		
+	}
+}

@@ -1,0 +1,39 @@
+package pandy.test;
+
+public class HeapSort2 {
+	int[] arr;
+	void heapAdjust(int arr[],int s,int m) {
+		//arr[s....m]中记录的关键字除arr[s]之外满足堆的定义
+		//此函数调整arr[s]的关键字
+		int rc = arr[s];//s是最后一个非叶子节点
+		for(int j=2*s;j<=m;j=s*2) {
+			if(j<m&&arr[j]<arr[j+1]) {
+				j++;
+			}
+			if(rc>=arr[j]) break;
+			arr[s] = arr[j];//移动到父节点
+			s=j;
+		}
+		arr[s]=rc;//要放入的位置
+	}
+	void heapSort(int[] arr) {
+		for(int i=(arr.length-1)/2;i>0;i--) {
+			heapAdjust(arr, i, arr.length-1);
+		}
+		System.out.println("建堆完成!");
+		outputArr(1);
+		for(int i=arr.length-1;i>1;i--) {
+			int temp = arr[1];
+			arr[1] = arr[i];
+			arr[i] = temp;
+			heapAdjust(arr, 1, i-1);
+		}
+	}
+	void outputArr(int i) {
+		if(i<=arr[0]) {
+			System.out.println(arr[i]);
+			outputArr(i*2);
+			outputArr(i*2+1);
+		}
+	}
+}

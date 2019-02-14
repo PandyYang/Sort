@@ -1,0 +1,19 @@
+package pandy.test.tree;
+/*
+ * 二叉树的节点
+ */
+public class Node {
+	//数据项
+	public long data;
+	//左子节点
+	public Node leftChild;
+	//右子节点
+	public Node rightChild;
+	
+	/*
+	 * 构造方法
+	 */
+	public Node(long data) {
+		this.data=data;
+	}
+}

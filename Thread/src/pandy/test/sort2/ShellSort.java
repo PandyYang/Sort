@@ -1,0 +1,28 @@
+package pandy.test.sort2;
+
+import java.util.Arrays;
+/*
+ * Ï£¶ûÅÅÐò
+ */
+public class ShellSort {
+	public static void shellSort(int[] arr) {
+		int num = arr.length/3+1;
+		while(num>0) {
+			for(int i=0;i<arr.length;i++) {
+				for(int j=i;j<arr.length-num;j=j+num) {
+					if(arr[j]>arr[j+num]) {
+						int temp = arr[j];
+						arr[j] = arr[num+j];
+						arr[num+j] =temp;
+					}
+				}
+			}
+			num = num/2;
+		}
+	}
+	public static void main(String[] args) {
+		int[] arr= {4,5,3,2,1,6,9,8,7};
+		ShellSort.shellSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+}

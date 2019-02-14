@@ -1,0 +1,24 @@
+package pandy.test.heapsort;
+/*
+ * package pandy.test;
+ * 
+ * import java.sql.Connection; import java.sql.DriverManager; import
+ * java.sql.PreparedStatement; import java.sql.ResultSet; import
+ * java.sql.SQLException;
+ * 
+ * public class Main { Connection connection = null; PreparedStatement ps =
+ * null; ResultSet rs = null;
+ * 
+ * try { Class.forName("com.mysql.jdbc.Driver"); connection =
+ * DriverManager.getConnection("jdbc:mysql://localhost:3306/ssm","root","root");
+ * ps = connection.prepareStatement("select * from users where id = ?");
+ * ps.setString(1, "Pandy"); rs=ps.executeQuery(); User user = new User();
+ * while(rs.next()) { user.setId(rs.getString(1));
+ * user.setName(rs.getString(2)); } System.out.println(eat);
+ * }catch(ClassNotFoundException e) { e.printStackTrace(); }catch(SQLException
+ * e) { e.printStackTrace(); } finally { if(rs!=null) { try { rs.close();
+ * }catch(SQLException e) { e.printStackTrace(); } } if(ps!=null) { try {
+ * ps.close(); }catch(SQLException e) { e.printStackTrace(); } }
+ * if(connection!=null) { try { connection.close(); }catch(SQLException e) {
+ * e.printStackTrace(); } } } }
+ */

@@ -1,0 +1,50 @@
+package pandy.test;
+
+import java.util.Arrays;
+
+public class HeapSort {
+	private int[] arr;
+	public HeapSort(int[] arr) {
+		this.arr = arr;
+	}
+	/*
+	 * 堆排序的主要入口方法 共两步
+	 */
+	public void sort() {
+		int len = arr.length-1;//数组的长度
+		int beginIndex = (len-1)>>1;//第一个非叶子节点
+		for(int i=beginIndex;i>=0;i--)
+			maxHeapify(i,len);
+		
+		for(int i= len;i>0;i--) {
+			swap(0,i);
+			maxHeapify(0,i - 1);
+		}
+	}
+	private void swap(int i,int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	/*
+	 * index 需要堆化处理的数据的索引
+	 * len 为排序的堆的长度
+	 */
+	private void maxHeapify(int index,int len) {
+		int li = (index<<1)+1;//左子节点索引
+		int ri = li+1;//右子节点索引
+		int cMax = li;
+		if(li>len) return;
+		if(ri<=len&&arr[ri]>arr[li])
+			cMax = ri;
+		if(arr[cMax]>arr[index]) {
+			swap(cMax,index);
+			maxHeapify(cMax,len);
+		}
+	}
+	public static void main(String[] args) {
+		int[] arr = {1,265,6565,95956,26,565,959,562,629,5962,62656,56};
+		new HeapSort(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+}

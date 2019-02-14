@@ -1,0 +1,21 @@
+package pandy.test.tree;
+
+public class TreeNode {
+	int val;
+	//左子树
+	TreeNode left;
+	//右子树
+	TreeNode right;
+	//构造方法
+	TreeNode(int x){
+		val = x;
+	}
+	//递归先序遍历
+	public static void recursionPreorderTraversal(TreeNode root) {
+		if(root != null) {
+			System.out.println(root.val + "");
+			recursionPreorderTraversal(root.left);
+			recursionPreorderTraversal(root.right );
+		}
+	}
+}
